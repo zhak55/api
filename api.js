@@ -14,6 +14,17 @@ var api = new API();
  * ---- visits: {today: Number, week: Number: month: Number}
  */
  
-  api.get(ids)
+  api.get(ids).then((res) => {
+   res = {
+    response : [
+      id      : 1,
+      payment : 15 // Количество платежей 
+      visits  : {
+        today : 100,
+        week  : 1000, 
+        month : 10000
+      }]
+    }
+  });
 
 // 2. 
