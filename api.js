@@ -18,7 +18,8 @@ var api = new API();
    res = {
     response : [
       id      : 1,
-      payment : 15 // Количество платежей 
+      payment : 15, // Количество платежей 
+      device : new Number ,// 1 - ios, 2 - android 
       visits  : {
         today : 100,
         week  : 1000, 
@@ -33,21 +34,24 @@ var api = new API();
  * --- 1.  = 'installed'      : Вернуть количество установок за сегодня/вчера/неделю/месяц/все время 
  * --- 2.  = 'installed=data' : Вернуть количество установок на определнную дату
  * --- 3.  = 'installed=[data1,data2]' : Вернуть количество установок за период по дням
- 
+ *
  * --- 4.  = 'visits'      : Вернуть количество посещений за сегодня/вчера/неделю/месяц/все время 
  * --- 5.  = 'visits=data' : Вернуть количество посещений на определнную дату
  * --- 6.  = 'visits=[data1,data2]' : Вернуть количество посещений за период по дням
- 
+ *
  * --- 7.  = 'payment'      : Вернуть количество платежей за сегодня/вчера/неделю/месяц/все время 
  * --- 8.  = 'payment=data' : Вернуть количество платежей на определнную дату
  * --- 9.  = 'payment=[data1,data2]' : Вернуть количество платежей за период по дням
  * --- 10. = 'country' : Распределние пользователей по странам 
- * @return {Array} : [ n1, n2, ... , N ]
+ * @return {Object} : { ios: [ n1, n2, ... , N ], android: [ n1, n2, ... , N ] }
  */
  
  api.stats(type).then((res /* = installed=[01.03.2016, 5.03.2016]*/) => {
   res = {
-   response : [1000, 5000, 10000, 12000, 25000]
+   response :  {
+     ios     : [1000, 5000, 10000, 12000, 25000] ,
+     android : [500, 1000, 7000, 9000, 15000]
+    }
    }
  });
  
@@ -58,7 +62,7 @@ var api = new API();
   * --- свойства объекта: { count{Number}, id{Number}, detail{Array} }
   * ---- count  - общее количество платежей 
   * ---- id     - id пользователя 
-  * ---- detail - массив всех платежей, каждый из которых содержит уникальный id платежа, дату, тип, размер платежа 
+  * ---- detail - массив всех платежей, каждый из которых содержит уникальный id платежа, дату, тип, размер платежа
   */
   
   api.payment(ids).then((res) => {
@@ -67,10 +71,10 @@ var api = new API();
        id     : new Number ,// user id
        count  : new Number ,
        detail : [{
-         id   : new Number,
-         date : new Date('dd:mm:yyyy'),
-         type : new Number, // 1 = 'Premium account', 2 = 'Module #1' ...
-         pay  : new Number
+         id     : new Number,
+         date   : new Date('dd:mm:yyyy'),
+         type   : new Number, // 1 = 'Premium account', 2 = 'Module #1' ...
+         pay    : new Number
        }]
       }
     }
