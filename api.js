@@ -53,12 +53,19 @@ var api = new API();
  
  /* 3. Получить информацию по платежам  
   * @param {Number} [ids]
+  * @return {Object} :
+  * -- response: {}
+  * --- свойства объекта: { count{Number}, id{Number}, detail{Array} }
+  * ---- count  - общее количество платежей 
+  * ---- id     - id пользователя 
+  * ---- detail - содержит уникальный id платежа, дату, тип, размер платежа 
   */
   
   api.payment(ids).then((res) => {
     res = {
       response : {
-       count  : 9 ,
+       id     : new Number ,// user id
+       count  : new Number ,
        detail : [{
          id   : new Number,
          date : new Date('dd:mm:yyyy'),
