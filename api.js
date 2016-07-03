@@ -79,3 +79,9 @@ var api = new API();
       }
     }
   });
+  
+  /* 4. Добавить информацию о платеже в БД
+   * @param {Object} [data]
+   * -- {Object} :
+   * --- свойства { id{Number} }
+   */
