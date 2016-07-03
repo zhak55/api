@@ -85,3 +85,18 @@ var api = new API();
    * -- {Object} :
    * --- свойства { id{Number} }
    */
+   
+   api.addPay({
+     id     : new Number,
+     date   : new Date('dd:mm:yyyy'),
+     type   : new Number, // 1 = 'Premium account', 2 = 'Module #1' ...
+     pay    : new Number
+   }).success(data => {
+     data = new Number // id платежа
+   }).error(err => {
+     err = {
+       id : new Number , // id ошибки 
+       user : new Number , // id пользователя 
+       description: new String 
+     }
+   })
