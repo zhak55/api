@@ -1,3 +1,7 @@
+/* request 
+ * url : https://domain.ru/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN&callback=callbackName  
+ */
+ 
 var api = new API();
 
 /* 1. Получить данные по отдельному пользователю или группе.
