@@ -1,5 +1,6 @@
 /* request 
- * url : https://domain.ru/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN&callback=callbackName  
+ * URL длязапросов http://api.twiddlebot.ru/
+ * Пример : http://api.twiddlebot.ru/method/get?count=1000&access_token=ACCESS_TOKEN&callback=callbackName  
  */
  
 var api = new API();
