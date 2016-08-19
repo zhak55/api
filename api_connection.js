@@ -101,6 +101,7 @@
       // convert arguments to an array
       // so they can be sent to the
       // callbacks via the apply method
+      
       args = Array.prototype.slice.call(args);
 
       while(i--) list[i].apply(null, args);
@@ -125,15 +126,15 @@
    function Q() {};
 
    Q.prototype.api = function(method, params) {
-   	var d = new Deferred();
-   	try {
+    var d = new Deferred();
+    try {
      var reqURL = url + method.replace('.', '/');
      JSONP(reqURL, params, function(data){ 
        if(data.response) d.resolve(data.response);
        else d.reject(data)
       })
-   	 } catch(e) { throw new Error(e); };
-   	return d;
+     } catch(e) { throw new Error(e); };
+    return d;
    }
 
    global.TWBot = Q;
